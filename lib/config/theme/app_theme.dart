@@ -19,6 +19,9 @@ class AppTheme {
   AppTheme({this.selectedColor = 0})
     : assert(selectedColor >= 0, 'El color seleccionado debe ser mayor de 0');
 
-  ThemeData getTheme() =>
-      ThemeData(useMaterial3: true, colorSchemeSeed: colorList[selectedColor]);
+  ThemeData getTheme() => ThemeData(
+    useMaterial3: true,
+    colorSchemeSeed: colorList[selectedColor],
+    appBarTheme: AppBarTheme(centerTitle: false),
+  );
 }
