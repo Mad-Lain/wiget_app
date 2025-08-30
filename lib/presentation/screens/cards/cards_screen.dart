@@ -26,13 +26,27 @@ class _CardsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ...cards.map(
-          (card) =>
-              _CardType1(label: card['label'], elevation: card['elevation']),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsetsGeometry.fromLTRB(4, 10, 4, 10),
+        child: Column(
+          children: [
+            ...cards.map(
+              (card) => _CardType1(
+                label: card['label'],
+                elevation: card['elevation'],
+              ),
+            ),
+
+            ...cards.map(
+              (card) => _CardType1(
+                label: card['label'],
+                elevation: card['elevation'],
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
@@ -58,6 +72,7 @@ class _CardType1 extends StatelessWidget {
                 icon: Icon(Icons.accessible_outlined),
               ),
             ),
+            Align(alignment: Alignment.bottomLeft, child: Text(label)),
           ],
         ),
       ),
