@@ -171,17 +171,29 @@ class _CardType4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      clipBehavior: Clip.hardEdge,
       elevation: elevation,
-      child: Column(
+      child: Stack(
         children: [
+          Image.network(
+            'https://picsum.photos/id/${ elevation.toInt()}/600/350',
+            height: 350,
+            fit: BoxFit.cover,
+          ),
           Align(
             alignment: Alignment.topRight,
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.accessible_outlined),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20))
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.accessible_outlined),
+              ),
             ),
           ),
-          Align(alignment: Alignment.bottomLeft, child: Text(label)),
+          Align(alignment: Alignment.bottomLeft, child: Text('$label - image')),
         ],
       ),
     );
