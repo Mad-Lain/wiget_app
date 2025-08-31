@@ -28,4 +28,11 @@ const appMenuItems = <MenuItems>[
     subTittle: 'Un contendor estilizado de flutter',
     tittle: 'Tarjetas',
   ),
+
+  MenuItems(
+    icon: Icons.refresh_rounded,
+    link: '/progress',
+    subTittle: 'generales y controlados',
+    tittle: 'ProgressIndicators',
+  ),
 ];

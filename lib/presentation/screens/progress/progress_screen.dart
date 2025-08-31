@@ -6,6 +6,33 @@ class ProgressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(title: const Text('Progress Indicators')),
+      body: const _ProgressView(),
+    );
+  }
+}
+
+class _ProgressView extends StatelessWidget {
+  const _ProgressView();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: [
+          SizedBox(height: 30),
+          Text('Circular progress indicator'),
+          SizedBox(height: 10),
+          CircularProgressIndicator(
+            strokeWidth: 2,
+            backgroundColor: Colors.black45,
+          ),
+
+          SizedBox(height: 25),
+          Text('Circulo interior controlado'),
+        ],
+      ),
+    );
   }
 }
