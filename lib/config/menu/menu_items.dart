@@ -49,4 +49,11 @@ const appMenuItems = <MenuItems>[
     subTittle: 'Stateful widget animado',
     tittle: 'Animated container',
   ),
+
+  MenuItems(
+    icon: Icons.gamepad,
+    link: '/ui-controls',
+    subTittle: 'Serie de controles en flutter',
+    tittle: 'UI-controls + Tittles',
+  ),
 ];
