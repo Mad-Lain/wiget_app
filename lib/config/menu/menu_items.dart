@@ -36,10 +36,17 @@ const appMenuItems = <MenuItems>[
     tittle: 'ProgressIndicators',
   ),
 
-   MenuItems(
+  MenuItems(
     icon: Icons.cookie,
     link: '/snackbar',
     subTittle: 'Indicadores en pantalla',
     tittle: 'Snackbar y dialogos',
+  ),
+
+  MenuItems(
+    icon: Icons.animation,
+    link: '/animated',
+    subTittle: 'Stateful widget animado',
+    tittle: 'Animated container',
   ),
 ];
