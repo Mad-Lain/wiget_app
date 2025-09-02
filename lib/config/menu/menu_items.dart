@@ -56,4 +56,11 @@ const appMenuItems = <MenuItems>[
     subTittle: 'Serie de controles en flutter',
     tittle: 'UI-controls + Tittles',
   ),
+
+  MenuItems(
+    icon: Icons.integration_instructions,
+    link: '/tutorials',
+    subTittle: 'Screen tutorials',
+    tittle: 'Introduccion a la aplicacion',
+  ),
 ];
