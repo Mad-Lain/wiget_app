@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,10 +28,38 @@ final slides = <SlideInfo>[
   ),
 ];
 
-class AppTutorialScreens extends StatelessWidget {
+class AppTutorialScreens extends StatefulWidget {
   static const name = 'tutorial_app';
 
   const AppTutorialScreens({super.key});
+
+  @override
+  State<AppTutorialScreens> createState() => _AppTutorialScreensState();
+}
+
+class _AppTutorialScreensState extends State<AppTutorialScreens> {
+  final PageController pageviewController = PageController();
+  bool endReached = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    pageviewController.addListener(() {
+      final page = pageviewController.page ?? 0;
+      if (!endReached && page >= (slides.length - 1.5)) {
+        setState(() {
+          endReached = true;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    pageviewController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +68,7 @@ class AppTutorialScreens extends StatelessWidget {
       body: Stack(
         children: [
           PageView(
+            controller: pageviewController,
             physics: BouncingScrollPhysics(),
             children: slides
                 .map(
@@ -58,6 +88,20 @@ class AppTutorialScreens extends StatelessWidget {
               child: Text('skip'),
             ),
           ),
+          endReached
+              ? Positioned(
+                  bottom: 30,
+                  right: 30,
+                  child: FadeInRight(
+                    from: 15,
+                    delay: const Duration(seconds: 1),
+                    child: FilledButton(
+                      onPressed: () => context.pop(),
+                      child: Text('Empezar'),
+                    ),
+                  ),
+                )
+              : SizedBox(),
         ],
       ),
     );
