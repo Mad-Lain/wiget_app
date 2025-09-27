@@ -63,4 +63,10 @@ const appMenuItems = <MenuItems>[
     subTittle: 'Screen tutorials',
     tittle: 'Introduccion a la aplicacion',
   ),
+  MenuItems(
+    icon: Icons.list_alt_rounded,
+    link: '/infinite',
+    subTittle: 'Infinite screen tutorials',
+    tittle: 'Listas infinitas y pull refresh',
+  ),
 ];
